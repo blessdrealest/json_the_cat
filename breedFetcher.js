@@ -24,4 +24,11 @@ request.get(url, (error, response,  body) => {
 
 }
 
-breedFetcherData();
+const breedName = process.argv[2]; // breed name as 3rd argument represents name
+
+if (breedName) {
+  breedFetcherData(breedName);
+} else {
+  console.log('Breed Name not present'); // case of if no name/incorrect name given
+}
+
