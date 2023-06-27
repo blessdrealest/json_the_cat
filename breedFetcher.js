@@ -12,9 +12,12 @@ request.get(url, (error, response,  body) => {
     
   const data = JSON.parse(body); //convert string to obj
 
-    console.log(data);
-    console.log(typeof data);
-
+  if (data.length > 0) {
+    const firstEntry = data[0];
+    console.log('Description:', firstEntry.description);
+  } else {
+    console.log('No breeds found.');
+  }
 
   }
 });
