@@ -2,8 +2,8 @@ const request = require('request');
 
 
 
-const breedFetcherData = () => {
-  const url = 'https://api.thecatapi.com/v1/breeds/search?q=sib';
+const fetchBreedDescription = (breedName, callback) => {
+  const url = 'https://api.thecatapi.com/v1/breeds/search?q=${breedName}';
 
   request.get(url, (error, response, body) => {
     if (error) {
@@ -26,8 +26,9 @@ const breedFetcherData = () => {
 const breedName = process.argv[2];
 
 if (breedName) {
-  breedFetcherData(breedName);
+  fetchBreedDescription(breedName);
 } else {
   console.log('Breed Name not present');
 }
 
+module.exports = { fetchBreedDescription };
