@@ -7,9 +7,8 @@ const breedFetcherData = () => {
 
   request.get(url, (error, response, body) => {
     if (error) {
-      console.error('Error:', error);
+      console.error('Request Error:', error);
     } else {
-
       const data = JSON.parse(body);
 
       if (data.length > 0) {
